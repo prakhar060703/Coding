@@ -18,7 +18,7 @@ public:
 };
 
 /* Question taught us three things:-
-1. In modulo question, try not to store multiplication "long long ans= (solve(x,5)*solve(y,4))%mod;" variable answer is not able to store that much digit.
+1. In modulo question, try not to store multiplication "long long ans= (solve(x,5)*solve(y,4))%mod;" variable ans is not able to store that much digit.
 2. Never store multiplication in int type "ans=(ans*ans)%mod;" if datatype of ans is int then it is not able to store product, an error come unsigned integer overflow.
 3. For calculating Pow(x,y)=> y^x   think about tree... if you go for tree approach then time complexity is log(n)
     long long solve(long long a,long long n){ ... Function to calculate y^x;

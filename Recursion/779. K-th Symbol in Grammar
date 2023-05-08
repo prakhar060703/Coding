@@ -1,1 +1,16 @@
+class Solution {
+public:
 
+    int solve(int n,int k){
+        
+        if(n==1)return 0;
+        long long mid=pow(2,n-1)/2;
+        if(k>mid)return !solve(n-1,k-mid);
+        return solve(n-1,k);
+        
+    }
+
+    int kthGrammar(int n, int k) {
+        return solve(n,k);
+    }
+};

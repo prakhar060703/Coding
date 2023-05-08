@@ -1,0 +1,22 @@
+class Solution {
+public:
+    double solve(double x,long long n){  // function to calculate pow(x,n)...... time complexity log(n)... Tree Approach
+        if(n==1)return x;
+        double ans=solve(x,n/2);
+        ans*=ans;
+        if(n%2)ans=ans*x;
+        return ans;
+    }
+    double myPow(double x, int n) {
+        if(n==0)return 1.0;
+        if(x==1)return 1.0;
+        long long temp=n;
+        if(n<0){
+            temp=temp*(-1);// important part
+            return 1/solve(x,temp);}
+        else return solve(x,temp);
+    }
+};
+
+/* Take care of -2147483648 this number store in int but 2147483648 but this number cannot store in int
+Range of int -2147483648 to 2147483647. */

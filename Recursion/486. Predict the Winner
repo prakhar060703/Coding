@@ -1,0 +1,25 @@
+class Solution {
+public:
+
+    int solve(vector<int>&temp,int choice,int i,int j){
+        if(i>j)return 0;
+        if(choice==0)
+        return max(temp[i]+solve(temp,1,i+1,j),temp[j]+solve(temp,1,i,j-1));
+        else 
+        return min(solve(temp,0,i+1,j),solve(temp,0,i,j-1));
+    }
+
+    bool PredictTheWinner(vector<int>& nums) {
+       int p1=0,p2=0,sum=0;
+       for(int i=0;i<nums.size();i++)sum+=nums[i];
+       p1=solve(nums,0,0,nums.size()-1);
+       p2=sum-p1;
+       if(p1>=p2)return true;
+       else return false;
+    }
+};
+
+/*  
+   Concept is simple in each step if its player 1 chance then we have to find maximum and if player second chance we have to find minimum.
+   Draw tree you will easily understand          
+   */
